@@ -101,16 +101,17 @@ def read_ws(ws,client):
             print("WS RECV: %s" % msg)
             if (msg is not None):
                 packet = json.loads(msg)
-                if ("WS onopen" in packet):
-                    # Send info to new WS entity that was just added
-                    currentWorld = myWorld.world()
-                    for key in currentWorld:
-                        ws.send(json.dumps({key: currentWorld[key]}))
-                else:
-                    # Send it to all the other entities
+                if ("WS onopen" not in packet):
+                    # Send all entities in the packet to all the other WS
                     for entity in packet:
                         myWorld.set(entity, packet[entity])
                     send_all_json(packet)
+                else:
+                    # Sends the data from the current world to the new WS (updating it)
+                    currentWorld = myWorld.world()
+                    for key in currentWorld:
+                        ws.send(json.dumps({key: currentWorld[key]}))
+
     except Exception as e:
         print("WS Error %s" % e)
 
@@ -145,6 +146,7 @@ def flask_post_json():
     else:
         return json.loads(request.form.keys()[0])
 
+# Reference : https://github.com/nmrchvz/CMPUT404-assignment-ajax/blob/master/server.py#L74
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''

@@ -7,6 +7,23 @@ See requirements.org (plain-text) for a description of the project.
 
 Make a shared state Websockets drawing program
 
+Collaboration
+====================
+Nomar Chavez
+npchavez
+1603039
+
+This is a forked repo for the purpose of making a sharable canvas using websockets as CMPUT 404 assignment.
+
+I declare that I have not collaborated with anyone on the completion of this assignment
+
+References
+==========
+For websocket functions : https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
+
+For previous canvas world functions (from AJAX assignment): https://github.com/nmrchvz/CMPUT404-assignment-ajax/blob/master/server.py
+https://github.com/nmrchvz/CMPUT404-assignment-ajax/blob/master/static/index.html
+
 Prereqs
 =======
 Create a virtual environment and install the required dependencies.
@@ -26,7 +43,8 @@ freetests.py is LICENSE'D under a BSD-like license:
 
 From ws4py
 
-Copyright (c) 2011-2014, Sylvain Hellegouarch, Abram Hindle
+Copyright (c) 2011-2014, Sylvain Hellegouarch, Abram Hindle, and Nomar Chavez (Purpose for completing CMPUT 404 Assignment 5)
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
